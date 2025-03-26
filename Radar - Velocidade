@@ -1,0 +1,37 @@
+class Radar {
+  double _velocidade = 0;
+  final double limiteVelocidade;
+
+  Radar(this.limiteVelocidade);
+
+  set velocidade(double novaVelocidade) => _velocidade = novaVelocidade;
+  double get velocidade => _velocidade;
+
+  void verificarVelocidade() {
+    if (_velocidade <= limiteVelocidade) {
+      print("Velocidade dentro do limite (${_velocidade} km/h).");
+    } else if (_velocidade > limiteVelocidade && _velocidade <= limiteVelocidade + 20) {
+      print("Velocidade acima do limite! Multa leve. (${_velocidade} km/h)");
+    } else if (_velocidade > limiteVelocidade + 20 && _velocidade <= limiteVelocidade + 40) {
+      print("Velocidade muito alta! Multa grave. (${_velocidade} km/h)");
+    } else {
+      print("Velocidade extrema! Multa gravíssima e possível apreensão do veículo! (${_velocidade} km/h)");
+    }
+  }
+}
+
+void main() {
+  var radar = Radar(80); // Definição do limite de velocidade
+
+  radar.velocidade = 75;
+  radar.verificarVelocidade();
+
+  radar.velocidade = 95;
+  radar.verificarVelocidade();
+
+  radar.velocidade = 120;
+  radar.verificarVelocidade();
+
+  radar.velocidade = 150;
+  radar.verificarVelocidade();
+}

@@ -1,0 +1,52 @@
+class RadarIdade {
+  double _anoAtual = 0, _anoNasc = 0, _idade = 0;
+
+  // Getters e Setters
+  double get anoAtual => _anoAtual;
+  set anoAtual(double novoAnoAtual) => _anoAtual = novoAnoAtual;
+
+  double get anoNasc => _anoNasc;
+  set anoNasc(double novoAnoNasc) => _anoNasc = novoAnoNasc;
+
+  double? get idade => _idade;
+
+  // Cálculo da idade
+  void calcularIdade() {
+    this._idade = this._anoAtual - this._anoNasc;
+  }
+
+  // Classificação etária
+  void classificarIdade() {
+    if (_idade < 12) {
+      print("Criança (${_idade} anos)");
+    } else if (_idade >= 12 && _idade < 18) {
+      print("Adolescente (${_idade} anos)");
+    } else if (_idade >= 18 && _idade < 60) {
+      print("Adulto (${_idade} anos)");
+    } else {
+      print("Idoso (${_idade} anos)");
+    }
+  }
+}
+
+void main() {
+  var pessoa = RadarIdade();
+
+  pessoa.anoAtual = 2025;
+  
+  pessoa.anoNasc = 2018;
+  pessoa.calcularIdade();
+  pessoa.classificarIdade();
+
+  pessoa.anoNasc = 2010;
+  pessoa.calcularIdade();
+  pessoa.classificarIdade();
+
+  pessoa.anoNasc = 1995;
+  pessoa.calcularIdade();
+  pessoa.classificarIdade();
+
+  pessoa.anoNasc = 1950;
+  pessoa.calcularIdade();
+  pessoa.classificarIdade();
+}

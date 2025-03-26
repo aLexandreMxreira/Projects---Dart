@@ -1,0 +1,49 @@
+abstract class Time {
+  void calcularPontuacao();
+}
+
+class Vitoria extends Time {
+  int pontosPorVitoria, numeroDeVitorias;
+
+  Vitoria(this.pontosPorVitoria, this.numeroDeVitorias);
+
+  @override
+  void calcularPontuacao() {
+    int pontuacaoTotal = pontosPorVitoria * numeroDeVitorias;
+    print("Pontuação total por vitórias: ${pontuacaoTotal} pontos.");
+  }
+}
+
+class Empate extends Time {
+  int pontosPorEmpate, numeroDeEmpates;
+
+  Empate(this.pontosPorEmpate, this.numeroDeEmpates);
+
+  @override
+  void calcularPontuacao() {
+    int pontuacaoTotal = pontosPorEmpate * numeroDeEmpates;
+    print("Pontuação total por empates: ${pontuacaoTotal} pontos.");
+  }
+}
+
+class Derrota extends Time {
+  int pontosPorDerrota, numeroDeDerrotas;
+
+  Derrota(this.pontosPorDerrota, this.numeroDeDerrotas);
+
+  @override
+  void calcularPontuacao() {
+    int pontuacaoTotal = pontosPorDerrota * numeroDeDerrotas;
+    print("Pontuação total por derrotas: ${pontuacaoTotal} pontos.");
+  }
+}
+
+void main() {
+  var vitoria = Vitoria(3, 15);   // 3 pontos por vitória, 15 vitórias
+  var empate = Empate(1, 10);      // 1 ponto por empate, 10 empates
+  var derrota = Derrota(0, 13);    // 0 pontos por derrota, 13 derrotas
+
+  vitoria.calcularPontuacao();
+  empate.calcularPontuacao();
+  derrota.calcularPontuacao();
+}
